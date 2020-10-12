@@ -2,8 +2,7 @@ import fs from 'fs';
 import readline from 'readline';
 import { google, Auth } from 'googleapis';
 import config from '../../config/appConfig';
-import { Balance, Bank } from '../../models/balance';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { Balance } from '../../models/balance';
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -73,7 +72,7 @@ export const getBalance = async () => {
   sheets.spreadsheets.batchUpdate();
 
   const result = await sheets.spreadsheets.values.get({
-    spreadsheetId: '1w4Gjwba7Og6Ehh3hTk5uHDXdpl9yY5KNnMNyJ1YOxf8',
+    spreadsheetId: config.spreadsheetId,
     range: 'Summary!E24:O26',
   });
 
