@@ -7,7 +7,8 @@
     "dev": "nodemon --watch src",
     "start": "nodemon ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "script": "cd src/database/scripts && ts-node createDummyData.ts"
+    "create-user": "cd src/database/scripts && ts-node CreateUsersDummy.ts",
+    "create-events": "cd src/database/scripts && ts-node CreateEventsDummy.ts"
   },
   "repository": {
     "type": "git",

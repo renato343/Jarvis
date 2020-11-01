@@ -1,1 +1,21 @@
+### Get Balance from Spreadsheet
 GET http://localhost:8080/finance/getbalance
+
+
+### Get Balance for account ###
+GET http://localhost:8080/accounts/balance/1
+
+### Get Balance for all accounts ###
+GET http://localhost:8080/accounts/patrimony
+
+
+### Insert Event ###
+POST http://localhost:8080/events/insert
+content-type: application/json
+
+{
+  "eventId": 10,
+  "eventType": 0,
+  "amount": 1,
+  "account": 1
+}

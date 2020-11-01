@@ -1,4 +1,8 @@
-import { model } from 'mongoose';
-import { IUserDocument } from './users.types';
+import * as Mongoose from 'mongoose';
 import UserSchema from './users.schema';
-export const UserModel = model<IUserDocument>('user', UserSchema);
+import { IUserDocument, IUserModel } from './users.types';
+
+export const UserModel = Mongoose.model<IUserDocument>(
+  "user",
+  UserSchema
+  ) as IUserModel;

@@ -1,11 +1,12 @@
 import Mongoose from 'mongoose';
 import { UserModel } from './users/users.model';
+import { AccountEventsModel } from './accountEvents/accountsEvents.model';
 
 let database: Mongoose.Connection;
 
-export const connect = () => {
+export const connect = (databaseName: string) => {
   // add your own uri below
-  const uri = 'mongodb://localhost:27017/test';
+  const uri = `mongodb://localhost:27017/${databaseName}`;
   if (database) {
     return;
   }
@@ -22,6 +23,11 @@ export const connect = () => {
   database.on('error', () => {
     console.log('Error connecting to database');
   });
+
+  return {
+    UserModel,
+    AccountEventsModel,
+  }
 };
 
 export const disconnect = () => {

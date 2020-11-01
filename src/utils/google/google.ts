@@ -2,7 +2,6 @@ import fs from 'fs';
 import readline from 'readline';
 import { google, Auth } from 'googleapis';
 import config from '../../config/appConfig';
-import { Balance } from '../../models/balance';
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -80,7 +79,7 @@ export const getBalance = async () => {
   const bpiBalances = result.data.values[1];
   const cgdBalances = result.data.values[2];
 
-  const balances: Balance[] = new Array();
+  const balances = new Array();
   for (let i = 0; i <= dates.length; i++) {
     balances.push({
       date: dates[i],

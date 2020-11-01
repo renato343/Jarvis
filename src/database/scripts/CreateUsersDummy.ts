@@ -1,8 +1,8 @@
-import { UserModel } from '../../database/users/users.model';
-import { connect, disconnect } from '../../database/database';
+import { UserModel } from '../users/users.model';
+import { connect, disconnect } from '../database';
 
 (async () => {
-  connect();
+  connect('users');
   console.log('connected to database');
   const users = [
     { firstName: 'Emma', lastName: 'Bradley', age: 34 },
