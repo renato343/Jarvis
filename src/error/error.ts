@@ -10,7 +10,7 @@ export class APIError extends Error {
   }
 }
 
-export function errorHandler(err: APIError, req: Request, res: Response, next: NextFunction): void {
+export const errorHandler = (err: APIError, req: Request, res: Response, next: NextFunction): void => {
   console.log("error handler");
   const status = err.status || HTTPStatus.InternalServerError;
   const data = {

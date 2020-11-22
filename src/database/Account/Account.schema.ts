@@ -11,8 +11,12 @@ const AccountSchema = new Mongoose.Schema({
 
 const handleDuplicates = (error: any, res:any, next:any) =>  {
   if (error.name === 'MongoError' && error.code === 11000)
-    console.log("handle duplicates");
+  try {
     throw new APIError(HTTPStatus.NotAcceptable, 'Account already exists.');
+  } catch (err) {
+    console.log("in catch");
+    next(err)
+  }
 };
 
 AccountSchema.post('save', handleDuplicates);

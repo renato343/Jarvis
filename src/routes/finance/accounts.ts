@@ -1,13 +1,17 @@
 import { Router } from 'express';
-import { UserModel } from '../../database/users/users.model';
 import { AccountEventsModel } from '../../database/accountEvents/accountsEvents.model';
-import { Bank } from '../../models/models';
 
 const accountRouter = Router();
 
-accountRouter.post('/insert', async (req, res) => {
-    const resp = await AccountEventsModel.insertEvent(req.body);
-    res.send(resp);
+accountRouter.post('/insert', async (req, res, next) => {
+try{
+  const resp = await AccountEventsModel.insertEvent(req.body);
+  res.send(resp);
+}
+ catch (err) {
+  console.log("in catch");
+  next(err)
+}
 });
 
 accountRouter.get('/balance/:id', async (req, res) => {

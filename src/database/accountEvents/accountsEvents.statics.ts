@@ -11,7 +11,7 @@ export async function insertEvent(
   ev: IAccountEvents
 ): Promise<IAccountEventsDocument> {
   if(ev.eventType === EventType.OPEN){
-    await AccountModel.createAccount({bank: ev.accountId,bankName:Bank[ev.accountId], balance: ev.amount, savingsBalance:0 });
+      await AccountModel.createAccount({bank: ev.accountId,bankName:Bank[ev.accountId], balance: ev.amount, savingsBalance:0 });
   }
   console.log("created account event - return it");
   return this.create(ev);
