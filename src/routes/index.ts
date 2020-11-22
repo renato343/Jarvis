@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import accountEventsRouter from './finance/events';
+import accountRouter from './finance/accounts';
 import sheetRouter from './finance/sheet';
 
 const routes = Router();
 
 routes.use('/finance', sheetRouter);
-routes.use('/accounts', accountEventsRouter);
+routes.use('/accounts', accountRouter);
 
 export default routes;

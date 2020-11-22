@@ -1,0 +1,27 @@
+import { Router } from 'express';
+import { UserModel } from '../../database/users/users.model';
+import { AccountEventsModel } from '../../database/accountEvents/accountsEvents.model';
+import { Bank } from '../../models/models';
+
+const accountRouter = Router();
+
+accountRouter.post('/insert', async (req, res) => {
+    const resp = await AccountEventsModel.insertEvent(req.body);
+    res.send(resp);
+});
+
+accountRouter.get('/balance/:id', async (req, res) => {
+  const balance = await AccountEventsModel.getBalance(Number(req.params.id));
+  res.send({balance});
+});
+
+accountRouter.get('/patrimony', async (req, res) => {
+  const balance = await AccountEventsModel.getPatrimony(1);
+  res.send({balance});
+});
+
+accountRouter.get('/getbank', (req, res) => {
+  res.send('SheetRouter - getBank');
+});
+
+export default accountRouter;

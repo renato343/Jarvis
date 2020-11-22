@@ -1,6 +1,7 @@
 import Mongoose from 'mongoose';
 import { UserModel } from './users/users.model';
 import { AccountEventsModel } from './accountEvents/accountsEvents.model';
+import { AccountModel } from './Account/Account.model';
 
 let database: Mongoose.Connection;
 
@@ -27,6 +28,7 @@ export const connect = (databaseName: string) => {
   return {
     UserModel,
     AccountEventsModel,
+    AccountModel
   }
 };
 

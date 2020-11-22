@@ -10,12 +10,11 @@ GET http://localhost:8080/accounts/patrimony
 
 
 ### Insert Event ###
-POST http://localhost:8080/events/insert
+POST http://localhost:8080/accounts/insert
 content-type: application/json
 
 {
-  "eventId": 10,
-  "eventType": 0,
-  "amount": 1,
-  "account": 1
+    "accountId": 1,
+    "eventType": 0,
+    "amount": 300
 }

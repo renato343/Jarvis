@@ -2,7 +2,7 @@ import { Model, Document } from 'mongoose';
 import { EventType, Account } from '../../models/models';
 
 export interface IAccountEvents {
-  AccountId: number;
+  accountId: number;
   eventType: EventType;
   eventDate: Date;
   amount: number;

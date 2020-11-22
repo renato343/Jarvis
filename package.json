@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "_moduleAliases":{
+    "~":"dist"
+  },
   "scripts": {
     "dev": "nodemon --watch src",
-    "start": "nodemon ./src/index.ts",
+    "start": "nodemon ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "create-user": "cd src/database/scripts && ts-node CreateUsersDummy.ts",
     "create-events": "cd src/database/scripts && ts-node CreateEventsDummy.ts"
@@ -27,6 +30,7 @@
     "google-spreadsheet": "^3.0.13",
     "googleapis": "^61.0.0",
     "http": "0.0.1-security",
+    "link-module-alias": "^1.2.0",
     "mongoose": "^5.10.9"
   },
   "devDependencies": {

@@ -1,9 +1,8 @@
 import { Schema } from 'mongoose';
-import { Bank, EventType } from '../../models/models';
 import { insertEvent, getBalance } from './accountsEvents.statics';
 
 const AccountEventSchema = new Schema({
-  AccountId: Number,
+  accountId: Number,
   eventType: Number,
   eventDate: {
     type: Date,

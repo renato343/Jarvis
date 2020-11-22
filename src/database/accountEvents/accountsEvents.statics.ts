@@ -1,4 +1,5 @@
-import { EventType, Account } from '../..//models/models';
+import { EventType, Account, Bank } from '../..//models/models';
+import { AccountModel } from '../Account/Account.model';
 import {
   IAccountEvents,
   IAccountEventsDocument,
@@ -10,8 +11,9 @@ export async function insertEvent(
   ev: IAccountEvents
 ): Promise<IAccountEventsDocument> {
   if(ev.eventType === EventType.OPEN){
-    console.log('create account');
+    await AccountModel.createAccount({bank: ev.accountId,bankName:Bank[ev.accountId], balance: ev.amount, savingsBalance:0 });
   }
+  console.log("created account event - return it");
   return this.create(ev);
 }
 
